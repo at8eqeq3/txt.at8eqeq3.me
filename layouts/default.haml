@@ -35,6 +35,8 @@
       #main
         %meta{ property: "og:type", content: "article" }
         %meta{ property: "og:title", content: @item[:title] }
+        %meta{ property: "og:description", content: @item[:description] }
+        %meta{ property: "og:image", content: @config[:base_url] + "/img/userpic.svg" }
         %meta{ property: "og:url", content: @config[:base_url] + @item.path }
         %meta{ property: "article:section", content: "Текстятина" }
         - if @item[:date]
