@@ -1,0 +1,48 @@
+!!!
+%html{ lang: "ru" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ name: "author", content: "at8eqeq3" }
+    %meta{ name: "description", content: @item[:description] }
+    %meta{ name: "generator", content: "Nanoc #{ Nanoc::VERSION }" }
+    %meta{ name: "viewport", content: "width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" }
+    %title txt.at8eqeq3.me &mdash; #{ @item[:title] }
+    %link{ rel: "icon", href: "/img/userpic.svg", type: "image/svg+xml" }
+    %link{ rel: "preconnect", href: "https://fonts.gstatic.com" }
+    %link{ rel: "stylesheet", href: "/stylesheet.css" }
+    %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" }
+    %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,200;0,300;0,700;1,200;1,300;1,700&display=swap" }
+    %link{ rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" }
+  %body
+    #content
+      #header
+        %img{ src: "/img/userpic.svg", alt: "at8eqeq3's userpic" }
+        %h1
+          %a{ href: "/" } txt.at8eqeq3.me
+        %p // текстятина
+      #main
+        - if @item[:tldr]
+          #tldr= @item[:tldr]
+        - if @item[:epigraph]
+          #epigraph= @item[:epigraph]
+        = yield
+        #meta
+          - if @item[:date]
+            #date
+              %i.far.fa-calendar-alt
+              = @item[:date]
+          - if @item[:tags]
+            #tags
+              %i.fas.fa-tags
+              - @item[:tags].each do |tag|
+                .tag= tag
+          - if @item[:links]
+            #links
+              %i.fas.fa-link
+              - @item[:links].each do |link|
+                .link
+                  %a{ href: link[:href] }= link[:title]
+      #footer
+        %a{ href: "/" } txt.at8eqeq3.me
+              
+          

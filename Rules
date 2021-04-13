@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+compile '/**/*.md' do
+  filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo'
+  layout '/default.*'
+  filter :rubypants
+  filter :typogruby
+  write ext: 'html'
+end
+
+compile '/sitemap.xml' do
+  filter :haml
+  write ext: 'xml'
+end
+
+compile '/**/*' do
+  write item.identifier.to_s
+end
+
+
+layout '/**/*', :haml, format: :html5

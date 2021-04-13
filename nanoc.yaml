@@ -1,0 +1,13 @@
+# A list of file extensions that Nanoc will consider to be textual rather than
+# binary. If an item with an extension not in this list is found,  the file
+# will be considered as binary.
+text_extensions: [ 'css', 'haml', 'htm', 'html', 'js', 'markdown', 'md', 'sass', 'scss', 'tex', 'txt', 'xhtml', 'xml' ]
+
+prune:
+  auto_prune: true
+
+data_sources:
+  - type: filesystem
+    encoding: utf-8
+
+base_url: https://txt.at8eqeq3.me
