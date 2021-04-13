@@ -18,8 +18,8 @@ picture {
 img {
   width: 100%;
 }
-i.fas, i.far {
-  margin-right: 1.5em;
+.fas, .far, .fab {
+  margin-right: 0.5em;
 }
 #content {
   position: absolute;
@@ -146,5 +146,8 @@ i.fas, i.far {
   background-color: #ffffff33;
   padding-top: 2em;
   padding-bottom: 4em;
+  padding-left: 3em;
+  padding-right: 3em;
   font-size: 0.8em;
+
 }
