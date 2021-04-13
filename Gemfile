@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'builder'
 gem 'nanoc'
 gem 'haml'
 gem 'kramdown'
