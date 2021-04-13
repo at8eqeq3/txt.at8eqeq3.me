@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://txt.at8eqeq3.me/sitemap.xml
