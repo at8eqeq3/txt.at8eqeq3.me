@@ -1,0 +1,29 @@
+!!! XML
+%rss{ 'xmlns:yandex': 'http://news.yandex.ru', 'xmlns:media': 'http://search.yahoo.com/mrss/', 'xmlns:turbo': 'http://turbo.yandex.ru', version: '2.0' }
+  %channel
+    %title at8eqeq3 // текстятина
+    %link= @config[:base_url]
+    %description at8eqeq3 // текстятина &mdash; это сборище писанины преимущественно технического характера. Ничего, впрочем, реально полезного.
+    %language ru
+    %turbo:analytics{ type: 'Yandex', id: '236094' }
+    - @items.find_all('/*.md').each do |item|
+      - unless ['/index.md', '/error.md'].include? item.identifier
+        %item{ turbo: 'true' }
+          %turbo:extendedHtml true
+          %link= @config[:base_url] + item.path
+          %title= item[:title]
+          %description= item[:description]
+          %author at8eqeq3
+          %category Технологии
+          %pubDate= item[:date].strftime('%a, %d %b %Y %H:%M:%S %z')
+          - if item[:links]
+            %yandex:related{ type: 'infinity' }
+              - item[:links].each do |link|
+                %link{ url: @config[:base_url] + link[:href] }= link[:title]
+          %turbo:content
+            :cdata
+              <header>
+                <h1>#{item[:title]}</h1>
+                #{'<figure><img src="/img/' + item[:cover] +'" /></figure>' if item.key? :cover}
+              </header>
+              #{item.compiled_content}

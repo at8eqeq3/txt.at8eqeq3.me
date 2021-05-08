@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 compile '/**/*.md' do
-  filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo'
+  filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo', auto_ids: false
   layout '/default.*'
   filter :rubypants
   filter :typogruby
@@ -10,6 +10,11 @@ end
 
 compile '/sitemap.xml' do
   filter :haml
+  write ext: 'xml'
+end
+
+compile '/feed.xml' do
+  filter :haml, format: :xhtml
   write ext: 'xml'
 end
 

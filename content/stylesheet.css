@@ -10,6 +10,9 @@ html, body {
     font-size: 0.7em;
   }
 }
+strong {
+  font-weight: 700;
+}
 picture {
   width: 100%;
   margin: 0;
@@ -17,6 +20,10 @@ picture {
 }
 img {
   width: 100%;
+}
+hr {
+  border: none;
+  border-bottom: 1px solid #9c8767;
 }
 .fas, .far, .fab {
   margin-right: 0.5em;
@@ -98,6 +105,31 @@ img {
   font-size: 1.1em;
   font-weight: 700;
 }
+#content #main blockquote {
+  background: #ffffff33;
+  border: 1px solid #9c8767;
+  font-style: italic;
+}
+#content #main blockquote p {
+  display: inline-block;
+}
+#content #main blockquote::before {
+  content: "«";
+  font-style: normal;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+#content #main blockquote::after {
+  content: "»";
+  font-style: normal;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+#content #main blockquote p::first-letter {
+  font-variant: normal;
+  font-size: 1em;
+  font-weight: normal;
+}
 #content #main code {
   background: #ffffff33;
   font-family: Fira Mono, monospace;
@@ -106,6 +138,7 @@ img {
   background: #ffffff33;
   font-family: Fira Mono, monospace;
   border: 1px solid #9c8767;
+  overflow-x: scroll;
 }
 #content #main pre code {
   background: none;
