@@ -3,7 +3,7 @@
   %channel
     %title at8eqeq3 // текстятина
     %link= @config[:base_url]
-    %description at8eqeq3 // текстятина &mdash; это сборище писанины преимущественно технического характера. Ничего, впрочем, реально полезного.
+    %description at8eqeq3 // текстятина – это сборище писанины преимущественно технического характера. Ничего, впрочем, реально полезного.
     %language ru
     %turbo:analytics{ type: 'Yandex', id: '236094' }
     - @items.find_all('/*.md').each do |item|
