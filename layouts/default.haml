@@ -6,6 +6,26 @@
     %meta{ name: "description", content: @item[:description] }
     %meta{ name: "generator", content: "Nanoc #{ Nanoc::VERSION }" }
     %meta{ name: "viewport", content: "width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" }
+    %meta{ property: "og:site_name", content: "txt.at8eqeq3.me // текстятина" }
+    %meta{ property: "og:type", content: "article" }
+    %meta{ property: "og:title", content: @item[:title] }
+    %meta{ property: "og:description", content: @item[:description] }
+    - if @item[:cover]
+      %meta{ property: "og:image", content: @config[:base_url] + '/img/' + @item[:cover] }
+    - else
+      %meta{ property: "og:image", content: @config[:base_url] + "/img/userpic.svg" }
+    %meta{ property: "og:url", content: @config[:base_url] + @item.path }
+    %meta{ property: "article:section", content: "Текстятина" }
+    - if @item[:date]
+      %meta{ property: "article:modified_time", content: @item[:date] }
+      %meta{ property: "article:published_time", content: @item[:date] }
+    - else
+      %meta{ property: "article:modified_time", content: Time.now }
+      %meta{ property: "article:published_time", content: Time.now }
+    %meta{ property: "article:author", content: "at8eqeq3" }
+    - if @item[:tags]
+      - @item[:tags].each do |tag|
+        %meta{ property: "article:tag", content: tag }
     %title txt.at8eqeq3.me &mdash; #{ @item[:title] }
     %link{ rel: "icon", href: "/img/userpic.svg", type: "image/svg+xml" }
     %link{ rel: "preconnect", href: "https://fonts.gstatic.com" }
@@ -33,22 +53,6 @@
           %a{ href: "/" } txt.at8eqeq3.me
         %p // текстятина
       #main
-        %meta{ property: "og:type", content: "article" }
-        %meta{ property: "og:title", content: @item[:title] }
-        %meta{ property: "og:description", content: @item[:description] }
-        %meta{ property: "og:image", content: @config[:base_url] + "/img/userpic.svg" }
-        %meta{ property: "og:url", content: @config[:base_url] + @item.path }
-        %meta{ property: "article:section", content: "Текстятина" }
-        - if @item[:date]
-          %meta{ property: "article:modified_time", content: @item[:date] }
-          %meta{ property: "article:published_time", content: @item[:date] }
-        - else
-          %meta{ property: "article:modified_time", content: Time.now }
-          %meta{ property: "article:published_time", content: Time.now }
-        %meta{ property: "article:author", content: "at8eqeq3" }
-        - if @item[:tags]
-          - @item[:tags].each do |tag|
-            %meta{ property: "article:tag", content: tag }
         - if @item[:tldr]
           #tldr= @item[:tldr]
         - if @item[:epigraph]
