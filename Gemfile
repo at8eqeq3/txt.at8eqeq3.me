@@ -7,3 +7,5 @@ gem 'kramdown'
 gem 'typogruby'
 gem 'rouge'
 gem 'rubypants'
+gem 'webrick'
+

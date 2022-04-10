@@ -15,7 +15,7 @@
           %description= item[:description]
           %author at8eqeq3
           %category Технологии
-          %pubDate= item[:date].strftime('%a, %d %b %Y %H:%M:%S %z')
+          %pubDate= Time.new(item[:date].split('-')[0], item[:date].split('-')[1], item[:date].split('-')[2]).strftime('%a, %d %b %Y %H:%M:%S %z')
           - if item[:links]
             %yandex:related{ type: 'infinity' }
               - item[:links].each do |link|

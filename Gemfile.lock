@@ -74,6 +74,7 @@ GEM
     tty-which (0.4.2)
     typogruby (1.0.18)
       rubypants
+    webrick (1.7.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -88,6 +89,7 @@ DEPENDENCIES
   rouge
   rubypants
   typogruby
+  webrick
 
 BUNDLED WITH
    2.2.32
