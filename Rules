@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
 
+compile '/index.md' do
+  filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo', auto_ids: false, syntax_highlighter: 'rouge'
+  layout '/idx.haml'
+  layout '/default.*'
+  write ext: 'html'
+end
+
 compile '/**/*.md' do
   filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo', auto_ids: false, syntax_highlighter: 'rouge'
   layout '/default.*'

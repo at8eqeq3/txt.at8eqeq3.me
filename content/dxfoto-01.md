@@ -1,5 +1,6 @@
 ---
 title: О сайте
+section: О dxfoto.ru
 description: Рассказываю о dxfoto.ru и как мы докатились до жизни такой
 date: 2017-08-15
 tldr: Старый пост с medium на двухлетие проекта

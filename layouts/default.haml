@@ -8,14 +8,20 @@
     %meta{ name: "viewport", content: "width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" }
     %meta{ property: "og:site_name", content: "txt.at8eqeq3.me // текстятина" }
     %meta{ property: "og:type", content: "article" }
-    %meta{ property: "og:title", content: @item[:title] }
+    - if @item[:section]
+      %meta{ property: "og:title", content: @item[:section] + ': ' + @item[:title] }
+    - else 
+      %meta{ property: "og:title", content: @item[:title] }
     %meta{ property: "og:description", content: @item[:description] }
     - if @item[:cover]
       %meta{ property: "og:image", content: @config[:base_url] + '/img/' + @item[:cover] }
     - else
       %meta{ property: "og:image", content: @config[:base_url] + "/img/userpic.svg" }
     %meta{ property: "og:url", content: @config[:base_url] + @item.path }
-    %meta{ property: "article:section", content: "Текстятина" }
+    - if @item[:section]
+      %meta{ property: "article:section", content: @item[:section] }
+    - else
+      %meta{ property: "article:section", content: "Текстятина" }
     - if @item[:date]
       %meta{ property: "article:modified_time", content: @item[:date] }
       %meta{ property: "article:published_time", content: @item[:date] }
@@ -30,7 +36,10 @@
     %meta{ property: "profile:last_name", content: "Grigoriev" }
     %meta{ property: "profile:username", content: "at8eqeq3" }
     %meta{ property: "profile:gender", content: "male" }
-    %title txt.at8eqeq3.me &mdash; #{ @item[:title] }
+    - if @item[:section]
+      %title txt.at8eqeq3.me &mdash; #{ @item[:section] + ': ' + @item[:title] }
+    - else
+      %title txt.at8eqeq3.me &mdash; #{ @item[:title] }
     %link{ rel: "icon", href: "/img/userpic.svg", type: "image/svg+xml" }
     %link{ rel: "preconnect", href: "https://fonts.gstatic.com" }
     %link{ rel: "stylesheet", href: "/stylesheet.css" }
@@ -58,6 +67,10 @@
           %a{ href: "/" } txt.at8eqeq3.me
         %p // текстятина
       #main
+        - if @item[:section]
+          %h1= @item[:section] + ': ' + @item[:title]
+        - else
+          %h1= @item[:title]
         - if @item[:tldr]
           #tldr= @item[:tldr]
         - if @item[:epigraph]
@@ -86,5 +99,4 @@
         %a{ href: "https://github.com/at8eqeq3/txt.at8eqeq3.me" } исходники
         %i.fab.fa-creative-commons-by
         %a{ href: "https://creativecommons.org/licenses/by/4.0/" } CC-BY
-      #test
-        = tags_for(@item)
+

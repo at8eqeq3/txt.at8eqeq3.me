@@ -1,0 +1,10 @@
+= yield
+
+- @items.find_all('/*.md').sort{|a,b| b.fetch(:date, Time.new(1970, 1, 1)).to_s <=> a.fetch(:date, Time.new(1970, 1, 1)).to_s}.group_by{|i| i.fetch(:section, 'Разное')}.each do |section, items|
+  %h3= section
+  %ul
+    - items.each do |item|
+      - unless ['/index.md', '/error.md'].include? item.identifier
+        %li
+          %a{ href: item.path }= '&hellip;' + item[:title]
+    

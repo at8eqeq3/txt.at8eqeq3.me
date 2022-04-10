@@ -6,12 +6,15 @@
     %description at8eqeq3 // текстятина – это сборище писанины преимущественно технического характера. Ничего, впрочем, реально полезного.
     %language ru
     %turbo:analytics{ type: 'Yandex', id: '236094' }
-    - @items.find_all('/*.md').each do |item|
+    - @items.find_all('/*.md').sort{|a,b| b.fetch(:date, Time.new(1970, 1, 1)).to_s <=> a.fetch(:date, Time.new(1970, 1, 1)).to_s}.each do |item|
       - unless ['/index.md', '/error.md'].include? item.identifier
         %item{ turbo: 'true' }
           %turbo:extendedHtml true
           %link= @config[:base_url] + item.path
-          %title= item[:title]
+          - if item.key? :section
+            %title= item[:section] + ': ' + item[:title]
+          - else
+            %title= item[:title]
           %description= item[:description]
           %author at8eqeq3
           %category Технологии
