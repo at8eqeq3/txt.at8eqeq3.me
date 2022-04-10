@@ -1,5 +1,5 @@
 !!!
-%html{ lang: "ru", prefix: "og:http://ogp.me/ns# article:http://ogp.me/ns/article#" }
+%html{ lang: "ru", prefix: "og: http://ogp.me/ns# article: http://ogp.me/ns/article# profile: https://ogp.me/ns/profile#" }
   %head
     %meta{ charset: "utf-8" }
     %meta{ name: "author", content: "at8eqeq3" }
@@ -26,6 +26,10 @@
     - if @item[:tags]
       - @item[:tags].each do |tag|
         %meta{ property: "article:tag", content: tag }
+    %meta{ property: "profile:first_name", content: "Dmitry" }
+    %meta{ property: "profile:last_name", content: "Grigoriev" }
+    %meta{ property: "profile:username", content: "at8eqeq3" }
+    %meta{ property: "profile:gender", content: "male" }
     %title txt.at8eqeq3.me &mdash; #{ @item[:title] }
     %link{ rel: "icon", href: "/img/userpic.svg", type: "image/svg+xml" }
     %link{ rel: "preconnect", href: "https://fonts.gstatic.com" }
