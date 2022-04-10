@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 compile '/**/*.md' do
-  filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo', auto_ids: false
+  filter :kramdown, smart_quotes: 'ldquo,rdquo,laquo,raquo', auto_ids: false, syntax_highlighter: 'rouge'
   layout '/default.*'
   filter :rubypants
   filter :typogruby

@@ -184,3 +184,7 @@ hr {
   font-size: 0.8em;
 
 }
+
+.caps {
+  font-variant: small-caps;
+}

@@ -19,7 +19,8 @@
           - if item[:links]
             %yandex:related{ type: 'infinity' }
               - item[:links].each do |link|
-                %link{ url: @config[:base_url] + link[:href] }= link[:title]
+                - if link[0] == '/'
+                  %link{ url: @config[:base_url] + link[:href] }= link[:title]
           %turbo:content
             :cdata
               <header>
